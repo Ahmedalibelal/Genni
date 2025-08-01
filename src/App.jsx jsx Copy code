@@ -1,0 +1,37 @@
+import { useState, createContext } from "react";
+import Home from "./pages/Home";
+import Questions from "./pages/Questions";
+import Result from "./pages/Result";
+import Auth from "./pages/Auth";
+
+export const LangContext = createContext();
+
+export default function App() {
+  const [step, setStep]   = useState("home");   // home | questions | result | auth
+  const [lang, setLang]   = useState("ar");     // ar | en
+  const [dark, setDark]   = useState(false);
+
+  return (
+    <LangContext.Provider value={{ lang, setLang }}>
+      <div className={dark ? "dark" : ""}>
+        <div className="min-h-screen transition-colors duration-300">
+          <header>
+            {/* مثال على زر تبديل الوضع */}
+            <button
+              onClick={() => setDark(!dark)}
+              className="absolute top-4 left-4 px-3 py-1 rounded-lg bg-indigo-600 text-white"
+            >
+              {dark ? "☀️" : "🌙"}
+            </button>
+          </header>
+
+          {/* التنقّل بين الصفحات */}
+          {step === "home"      && <Home      setStep={setStep} />}
+          {step === "questions" && <Questions setStep={setStep} />}
+          {step === "result"    && <Result    setStep={setStep} />}
+          {step === "auth"      && <Auth      setStep={setStep} />}
+        </div>
+      </div>
+    </LangContext.Provider>
+  );
+}
