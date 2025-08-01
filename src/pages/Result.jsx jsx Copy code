@@ -1,0 +1,17 @@
+export default function Result({ setStep }) {
+  return (
+    <section className="flex flex-col items-center justify-center min-h-screen px-4 text-center">
+      <h2 className="text-3xl font-bold mb-4">🎉 استراتيجيتك جاهزة!</h2>
+      <p className="mb-6">
+        هذه نسخة مبدئية – سيتم في المرحلة القادمة توليد تفاصيل الاستراتيجية
+        تلقائيًا وربط المحتوى بالذكاء الاصطناعي.
+      </p>
+      <button
+        onClick={() => setStep("home")}
+        className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl"
+      >
+        العودة للرئيسية
+      </button>
+    </section>
+  );
+}
