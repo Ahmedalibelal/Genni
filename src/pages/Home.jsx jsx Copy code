@@ -1,0 +1,16 @@
+export default function Home({ setStep }) {
+  return (
+    <section className="flex flex-col items-center justify-center h-screen px-4 text-center">
+      <h1 className="text-4xl font-extrabold mb-4">مرحبًا بك في <span className="text-indigo-600">جنيِ</span> 👋</h1>
+      <p className="max-w-xl mb-6 text-lg">
+        نظام ذكاء اصطناعي يُنشئ لك الاستراتيجية التسويقية ويولّد المحتوى وينشره تلقائيًا.
+      </p>
+      <button
+        onClick={() => setStep("questions")}
+        className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-xl text-white text-lg shadow-lg"
+      >
+        ابدأ الآن
+      </button>
+    </section>
+  );
+}
